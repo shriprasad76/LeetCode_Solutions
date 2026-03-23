@@ -1,0 +1,38 @@
+class Solution {
+    public boolean areOccurrencesEqual(String s) {
+        char[] array=s.toCharArray();
+        HashMap <Character, Integer> map=new HashMap<> ();
+        int i,j=1,k;
+        for(i=0;i<array.length;i++)
+        {
+            if(map.containsKey(array[i]))
+            {
+                j=map.get(array[i]);
+                map.put(array[i],j+1);
+            }
+            else
+            {
+                map.put(array[i],1);
+            }
+           
+
+        }
+        k=-1;
+        for(i=0;i<array.length-1;i++)
+        {
+            if(k==-1)
+            {
+                k=map.get(array[i]);
+            }
+            else if(k!=map.get(array[i]))
+            {
+                return false;
+
+            }
+
+        }
+
+        return true;
+        
+    }
+}

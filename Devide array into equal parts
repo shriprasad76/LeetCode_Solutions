@@ -1,0 +1,30 @@
+class Solution {
+    public boolean divideArray(int[] nums) {
+         HashMap <Integer, Integer> map=new HashMap<>();
+         int i,j,k;
+         for(i=0;i<nums.length;i++)
+         {
+            if(map.containsKey(nums[i]))
+            {
+                j=map.get(nums[i]);
+                map.put(nums[i],j+1);
+
+            }
+            else
+            {
+                map.put(nums[i],1);
+            }
+         }
+
+         for(i=0;i<nums.length;i++)
+         {
+            if((map.get(nums[i])%2)!=0)
+            {
+                return false;
+            }
+         }
+         return true;
+
+
+    }
+}
